@@ -1,11 +1,54 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let adj = [
+  "great",
+  "big",
+  "attractive",
+  "bald",
+  "beautiful",
+  "chubby",
+  "handsome",
+  "long",
+  "magnificent",
+  "muscular",
+  "plain",
+];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+let noun = [
+  "jogger",
+  "racoon",
+  "puedes",
+  "time",
+  "year",
+  "people",
+  "way",
+  "day",
+  "man",
+  "thing",
+  "woman",
+  "life",
+  "child",
+  "world",
+  "school",
+  "state",
+  "family",
+  "president",
+  "moment",
+];
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+let dom = ["es", "ar", "us", "ve", "co", "com", "net", "io"];
+let pronoun = ["i", "you", "he", "she", "it", "we", "they"];
+
+let result = [];
+
+for (let i = 0; i < pronoun.length; i++) {
+  for (let j = 0; j < adj.length; j++) {
+    for (let k = 0; k < noun.length; k++) {
+      let found = dom.find((d) => noun[k].endsWith(d));
+      if (found) {
+        let split = noun[k].split(found);
+        console.log(pronoun[i] + adj[j] + split[0] + "." + found);
+      } else {
+        console.log(pronoun[i] + adj[j] + noun[k] + ".com");
+      }
+    }
+  }
+}
